@@ -28,8 +28,41 @@ code {
 
 .form {
   background-color: white;
+  border: thin solid #2c9382;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px;
 }
 
 input {
+  /*position: absolute;*/
+  display: inline;
+  /*left: 130px;*/
+}
+
+label {
+  display: inline;
+  font-weight: 600;
+}
+
+.formGroup {
   display: block;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  margin: 0;
+  background: white;
+  border: none;
+  border-radius: 5px;
+}
+
+h3 {
+  background: #2c9382;
+  padding: 1rem;
+  margin-top: 0px;
+  color: white;
+}
+
+span {
+  margin: 0 5px 0 5px;
 }
