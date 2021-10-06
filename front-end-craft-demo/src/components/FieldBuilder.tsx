@@ -1,7 +1,10 @@
 import React from 'react';
 import '../index.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 function FieldBuilder() {
+    const notify = () => toast.success('Fields have been saved!');
+
     return (
         <div className='form'>
             <h3>Field Builder</h3>
@@ -32,8 +35,9 @@ function FieldBuilder() {
                         <input type="text" id="order" name="order"/>
                     </div>
 
-                    <input type="submit" value="Submit"/><span>Or</span>
+                    <input onClick={notify} type="button" value="Submit"/><span>Or</span>
                     <input type="button" value="Cancel"/>
+                    <Toaster />
                 </fieldset>
             </form>
         </div>
