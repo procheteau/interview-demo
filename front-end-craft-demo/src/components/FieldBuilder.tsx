@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../index.css';
 import toast, { Toaster } from 'react-hot-toast';
 import FieldService from "../MockService";
@@ -7,18 +7,23 @@ const notifySubmit = () => toast.success('Fields have been saved!');
 const notifyClear = () => toast.success('Fields have been reset!');
 const notifyCancel = () => toast.error('Exit Field Builder');
 
-function handleSubmit(){
+function handleSubmit(event: React.SyntheticEvent){
+    event.preventDefault();
     FieldService.saveField({});
     notifySubmit();
 }
 
 function FieldBuilder() {
 
+    useEffect(() => {
+        console.log('GET request, retrieve fields: ', FieldService.getField(1));
+    }, []);
+
     return (
         <div className="fieldBuilder">
             <h3>Field Builder</h3>
             <div className='form'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <fieldset>
                         <div className="formGroup">
                             <label htmlFor="label">Label</label>
@@ -61,7 +66,7 @@ function FieldBuilder() {
                         </div>
 
                         <div className="button-row">
-                            <input className="submit-button" onClick={handleSubmit} type="button" value="Submit"/>
+                            <input className="submit-button" onClick={handleSubmit} type="submit" value="Submit"/>
                             <input onClick={notifyClear} type="button" value="Clear"/>
                             <input onClick={notifyCancel} type="button" value="Cancel"/>
                         </div>
