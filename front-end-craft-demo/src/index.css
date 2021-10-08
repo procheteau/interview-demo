@@ -58,7 +58,7 @@ label {
 }
 
 .formGroup.choices {
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 }
 
 fieldset {
@@ -92,12 +92,14 @@ span {
 }
 
 .fieldBuilder {
-  box-shadow: 1px 1px 1px;
+  box-shadow: 2px 2px 1px;
   border-radius: 5px;
   width: 30%;
   height: 80%;
   display: flex;
   flex-direction: column;
+  max-height: 500px;
+  min-width: 450px;
 }
 
 .button-row input {
@@ -132,3 +134,24 @@ select {
 #order {
   width: 60%;
 }
+
+.checkbox-group {
+  position: absolute;
+  left: 130px;
+}
+
+.checkbox-group span {
+  margin: 0;
+}
+
+.checkbox-group input {
+  position: static;
+  width: 20px;
+}
+
+.checkbox-group label {
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+

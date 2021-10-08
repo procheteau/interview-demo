@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 function FieldBuilder() {
     const notifySubmit = () => toast.success('Fields have been saved!');
     const notifyClear = () => toast.success('Fields have been reset!');
+    const notifyCancel = () => toast.error('Exit Field Builder');
 
     return (
         <div className="fieldBuilder">
@@ -18,8 +19,12 @@ function FieldBuilder() {
                         </div>
 
                         <div className="formGroup">
-                            <label htmlFor="type">Type</label>
-                            <input type="text" id="type" name="type"/>
+                            <label>Type</label>
+                            <div className="checkbox-group">
+                                <span>Multi-select</span>
+                                <input type="checkbox" id="type" name="type" value="multi-select"/>
+                                <label className="checkbox-label" htmlFor="type"> A Value is Required</label>
+                            </div>
                         </div>
 
                         <div className="formGroup">
@@ -51,7 +56,7 @@ function FieldBuilder() {
                         <div className="button-row">
                             <input className="submit-button" onClick={notifySubmit} type="button" value="Submit"/>
                             <input onClick={notifyClear} type="button" value="Clear"/>
-                            <input type="button" value="Cancel"/>
+                            <input onClick={notifyCancel} type="button" value="Cancel"/>
                         </div>
                         <Toaster />
                     </fieldset>
