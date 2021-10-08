@@ -13,7 +13,16 @@ function handleSubmit(event: React.SyntheticEvent){
     notifySubmit();
 }
 
+function handleChange(){
+    console.log('handleChange() called');
+}
+
 function FieldBuilder() {
+    const [label, setLabel] = useState('');
+    const [required, setRequired] = useState(false);
+    const [choices, setChoices] = useState([]);
+    const [displayAlpha, setDisplayAlpha] = useState(false);
+    const [defaultValue, setDefaultValue] = useState('North America');
 
     useEffect(() => {
         console.log('GET request, retrieve fields: ', FieldService.getField(1));
@@ -27,26 +36,26 @@ function FieldBuilder() {
                     <fieldset>
                         <div className="formGroup">
                             <label htmlFor="label">Label</label>
-                            <input type="text" id="label" name="label"/>
+                            <input type="text" id="label" name="label" onChange={handleChange}/>
                         </div>
 
                         <div className="formGroup">
                             <label>Type</label>
                             <div className="checkbox-group">
                                 <span>Multi-select</span>
-                                <input type="checkbox" id="type" name="type" value="multi-select"/>
+                                <input type="checkbox" id="type" name="type" value="multi-select" onChange={handleChange}/>
                                 <label className="checkbox-label" htmlFor="type"> A Value is Required</label>
                             </div>
                         </div>
 
                         <div className="formGroup">
                             <label htmlFor="defaultValue">Default Value</label>
-                            <input type="text" id="defaultValue" name="defaultValue"/>
+                            <input type="text" id="defaultValue" name="defaultValue" onChange={handleChange}/>
                         </div>
 
                         <div className="formGroup choices">
                             <label htmlFor="choices">Choices</label>
-                            <select name="choices" id="choices" multiple>
+                            <select name="choices" id="choices" multiple onChange={handleChange}>
                                 <option value="asia">Asia</option>
                                 <option value="australia">Australia</option>
                                 <option value="westernEurope">Western Europe</option>
@@ -59,7 +68,7 @@ function FieldBuilder() {
 
                         <div className="formGroup">
                             <label htmlFor="order">Order</label>
-                            <select name="order" id="order">
+                            <select name="order" id="order" onChange={handleChange}>
                                 <option value="alphabetical">Display choices in Alphabetical</option>
                                 <option value="reverse">Display choices in Reverse Alphabetical</option>
                             </select>
