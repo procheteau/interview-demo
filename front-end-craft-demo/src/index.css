@@ -29,14 +29,21 @@ code {
 .form {
   background-color: white;
   border: thin solid #2c9382;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  flex-grow: 70;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
 }
 
 input {
-  /*position: absolute;*/
+  position: absolute;
   display: inline;
-  /*left: 130px;*/
+  left: 130px;
+  width: 35%;
+  padding: 5px;
 }
 
 label {
@@ -45,24 +52,83 @@ label {
 }
 
 .formGroup {
-  display: block;
+  display: flex;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.formGroup.choices {
+  margin-bottom: 40px;
 }
 
 fieldset {
   margin: 0;
   background: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 h3 {
   background: #2c9382;
-  padding: 1rem;
-  margin-top: 0px;
+  padding: 0.8rem;
   color: white;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+  flex-grow: 1;
 }
 
 span {
   margin: 0 5px 0 5px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fieldBuilder {
+  box-shadow: 1px 1px 1px;
+  border-radius: 5px;
+  width: 30%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row input {
+  position: static;
+  margin-right: 5px;
+  width: 120px;
+  background-color: #fffcee;
+  color: #2c9382;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+}
+
+.button-row .submit-button {
+  background-color: #2c9382;
+  color: white;
+}
+
+form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  position: absolute;
+  left: 130px;
+  width: 35%;
+  padding: 5px;
+}
+
+#order {
+  width: 60%;
 }
