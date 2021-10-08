@@ -1,11 +1,18 @@
 import React from 'react';
 import '../index.css';
 import toast, { Toaster } from 'react-hot-toast';
+import FieldService from "../MockService";
+
+const notifySubmit = () => toast.success('Fields have been saved!');
+const notifyClear = () => toast.success('Fields have been reset!');
+const notifyCancel = () => toast.error('Exit Field Builder');
+
+function handleSubmit(){
+    FieldService.saveField({});
+    notifySubmit();
+}
 
 function FieldBuilder() {
-    const notifySubmit = () => toast.success('Fields have been saved!');
-    const notifyClear = () => toast.success('Fields have been reset!');
-    const notifyCancel = () => toast.error('Exit Field Builder');
 
     return (
         <div className="fieldBuilder">
@@ -54,7 +61,7 @@ function FieldBuilder() {
                         </div>
 
                         <div className="button-row">
-                            <input className="submit-button" onClick={notifySubmit} type="button" value="Submit"/>
+                            <input className="submit-button" onClick={handleSubmit} type="button" value="Submit"/>
                             <input onClick={notifyClear} type="button" value="Clear"/>
                             <input onClick={notifyCancel} type="button" value="Cancel"/>
                         </div>
