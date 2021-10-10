@@ -14,7 +14,7 @@ function handleSubmit(event: React.SyntheticEvent){
 }
 
 function handleChange(){
-    console.log('handleChange() called');
+    // console.log('handleChange() called');
 }
 
 function FieldBuilder() {
